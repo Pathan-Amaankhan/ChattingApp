@@ -1,0 +1,31 @@
+<div class="align-bottom-right" [style.right]="posOfDisplay.toString().concat('px')">
+  <div class="card border" style="width: 290px">
+    <span class="card-header bg-dark">
+      <img class="p-1" src="/assets/images/message-2-16.png" alt="m">
+      <label class="card-title text-white font-weight-bold">Chat - {{ nameOfBot }}</label>
+      <img class="float-right btn bg-white" src="/assets/images/closeButton.png" alt="c" (click)="closeMe()">
+    </span>
+
+    <span class="card-header overflow-auto" style="height: 150px">
+
+      <ul class="list-unstyled">
+        <li *ngFor="let msgInfo of messageList; let i=index">
+          <div class="pb-5" [class.pt-3]="i>0">
+            <div class="bg-white p-2 shadow-sm small w-90 float-left">
+              {{ msgInfo.message }}
+              <div class="small text-black-50">
+                {{ getDateInHumanReadableFormat(parseISOString(msgInfo.created_at)) }}
+              </div>
+            </div>
+            <img class="float-right" width="20px" height="20px" src="/assets/images/car1.jpeg" alt="i"> <!--change src with [src]="getUserImage"-->
+          </div>
+        </li>
+      </ul>
+    </span>
+
+    <span class="form-inline p-2">
+        <input class="form-control form-control-sm" type="text" #message>
+        <input class="form-control form-control-sm btn-sm btn-primary" type="button" value="send" (click)="sendMessage(message.value, message)">
+    </span>
+  </div>
+</div>

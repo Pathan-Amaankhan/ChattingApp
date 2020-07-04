@@ -1,0 +1,12 @@
+<app-header [numberOfPendingMessages]="numberOfPendingMessages" (pressedTimes)="buttonPressed()" (window:resize)="getWidth($event)"></app-header>
+<ul class="list-unstyled">
+  <li *ngFor="let user of usersList">
+    <app-chat-log [image]="user.image" [name]="user.name" [lastMessage]="getLastMessage(user.id)"></app-chat-log>
+  </li>
+</ul>
+
+<ul class="list-unstyled">
+  <li *ngFor="let user of usersList; let i=index">
+    <app-chat-box [positionOfDisplay]="posOfDisplay[i]" [nameOfBot]="user.name" [id]="user.id" [pendingMessages]="pendingMessages" (lastMessage)="getLastMess($event,user.id)" (numberOfMessagesUnsent)="numberOfPendingMessages=$event" (pendingMsg)="getPendingMsg($event)" (isClosed)="visible[i]=0;isVisible()" *ngIf="visible[i]"></app-chat-box>
+  </li>
+</ul>
