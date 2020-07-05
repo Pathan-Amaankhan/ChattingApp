@@ -14,8 +14,9 @@ export interface sendingMessagesToUser {
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  messageUrl: string = 'http://localhost:4201/messages';
-  usersUrl: string = 'http://localhost:4201/users';
+  @Input('MainUrl') MainUrl: string;
+  messageUrl: string = `${this.MainUrl}/messages`;
+  usersUrl: string = `${this.MainUrl}/users`;
   posOfDisplay: number[];
   visible: number[];
   numberOfPendingMessages: number = 0;

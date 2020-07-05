@@ -7,5 +7,6 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'ChatBotForIntern';
+  MainUrl: string = 'https://dazzling-saguaro-21294.herokuapp.com/';
 }
 

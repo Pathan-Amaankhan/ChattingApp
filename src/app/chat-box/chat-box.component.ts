@@ -11,10 +11,11 @@ export class ChatBoxComponent implements OnInit {
   @Input('nameOfBot') nameOfBot: string;
   @Input('id') id: number;
   @Input('pendingMessages') pendingMessages;
+  @Input('MainURL') MainUrl: string;
 
-  sendMessageUrl = 'http://localhost:4201/sendMessage';
-  getUserMessageUrl = 'http://localhost:4201/messageOfUser?id=';
-  getUserImageUrl = 'http://localhost:4201/getImage?id=';
+  sendMessageUrl = `${this.MainUrl}/sendMessage`;
+  getUserMessageUrl = `${this.MainUrl}/messageOfUser?id=`;
+  getUserImageUrl = `${this.MainUrl}/getImage?id=`;
   messageList: any = [];
   userList: any = [];
 
